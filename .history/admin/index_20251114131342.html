@@ -736,9 +736,10 @@
         let currentFilter = 'all';
         let searchQuery = '';
 
-        // Load applications from Supabase
-        async function loadApplications() {
-            const rawApplications = await getAllSubmissions();
+        // Load applications from our data management system
+        function loadApplications() {
+            const stored = localStorage.getItem('allSubmissions');
+            const rawApplications = stored ? JSON.parse(stored) : [];
             
             // Transform our data structure to match admin page expectations
             applications = rawApplications.map(app => ({
@@ -958,15 +959,35 @@
         }
 
         // Update application status
-        async function updateStatus(id, status) {
-            const success = await updateVerificationStatus(id, status);
-            
-            if (!success) {
-                alert('Failed to update verification status. Please try again.');
+        function updateStatus(id, status) {
+            // Get the verification data
+            const dataStr = localStorage.getItem('verification_' + id);
+            if (!dataStr) {
+                alert('Verification not found');
                 return;
             }
             
-            await loadApplications();
+            const verificationData = JSON.parse(dataStr);
+            verificationData.status = status;
+            verificationData.statusUpdatedAt = new Date().toISOString();
+            if (status === 'approved') {
+                verificationData.approvedAt = new Date().toISOString();
+            } else if (status === 'rejected') {
+                verificationData.rejectedAt = new Date().toISOString();
+            }
+            
+            // Update individual record
+            localStorage.setItem('verification_' + id, JSON.stringify(verificationData));
+            
+            // Update in allSubmissions
+            let allSubmissions = JSON.parse(localStorage.getItem('allSubmissions') || '[]');
+            const index = allSubmissions.findIndex(s => s.sessionId === id);
+            if (index !== -1) {
+                allSubmissions[index] = verificationData;
+                localStorage.setItem('allSubmissions', JSON.stringify(allSubmissions));
+            }
+            
+            loadApplications();
             closeModal();
             
             const message = currentLanguage === 'ar' 

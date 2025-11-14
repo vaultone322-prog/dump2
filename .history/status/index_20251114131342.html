@@ -649,8 +649,8 @@
         let currentApplication = null;
         let checkInterval = null;
 
-        // Load and display status using Supabase
-        async function loadStatus() {
+        // Load and display status using our data management system
+        function loadStatus() {
             // Try to get session ID from sessionStorage
             let sessionId = sessionStorage.getItem('verificationSessionId');
             
@@ -674,9 +674,9 @@
                 return;
             }
 
-            // Get verification data from Supabase
-            const verificationData = await getVerificationBySessionId(sessionId);
-            if (!verificationData) {
+            // Get verification data from localStorage
+            const dataStr = localStorage.getItem('verification_' + sessionId);
+            if (!dataStr) {
                 document.getElementById('loadingScreen').innerHTML = `
                     <h2>Verification Not Found</h2>
                     <p style="margin: 20px 0;">No verification found for session ID: ${sessionId.substring(0, 15)}...</p>
@@ -685,12 +685,12 @@
                 return;
             }
 
-            currentApplication = verificationData;
+            currentApplication = JSON.parse(dataStr);
             displayStatus();
         }
 
         // Check with manually entered session ID
-        async function checkWithSessionId() {
+        function checkWithSessionId() {
             const sessionId = document.getElementById('sessionIdInput').value.trim();
             if (!sessionId) {
                 alert('Please enter a session ID');
