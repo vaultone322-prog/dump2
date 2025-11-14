@@ -1,0 +1,351 @@
+<!-- Dubai Police Header Component -->
+<!-- Copy this header to all pages for consistency -->
+
+<header class="dubai-police-header">
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="head-logo">
+                <div class="gov-logo">
+                    <a href="https://www.dubai.ae/en" rel="noopener noreferrer" title="Government of Dubai" target="_blank">
+                        <img src="/site/wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai">
+                    </a>
+                </div>
+                <div class="dp-logo">
+                    <a href="/">
+                        <img src="/site/wp-content/uploads/2025/02/images__8_-removebg-preview.png" alt="Dubai Police">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="main-nav">
+        <div class="container-fluid">
+            <div class="nav-wrapper">
+                <button class="menu-toggle" aria-label="Menu">
+                    <span class="material-icons-outlined">menu</span>
+                </button>
+                
+                <ul class="main-navigation-links">
+                    <li class="nav-item active">
+                        <a href="/" data-en="Home" data-ar="الرئيسية">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/site/about/" data-en="About Us" data-ar="معلومات عنا">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/site/information/" data-en="Information" data-ar="معلومات">Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/site/contact/" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="action-search" aria-label="Search">
+                        <span class="material-icons-outlined">search</span>
+                        <span class="search-text" data-en="Search..." data-ar="بحث...">Search...</span>
+                    </button>
+                    
+                    <button class="lang-toggle" aria-label="Change Language">
+                        <span class="lang-text">English</span>
+                        <span class="material-icons-round">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Quick Links Sidebar (Optional - for service pages) -->
+<aside class="quick-links-sidebar" id="quickLinksSidebar">
+    <div class="sidebar-header">
+        <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+    </div>
+    <ul class="quick-links-menu">
+        <li>
+            <a href="/site/uae-pass-verification/" data-en="UAE Pass Verification" data-ar="التحقق من الهوية الرقمية">
+                <span class="material-icons-outlined">verified_user</span>
+                UAE Pass Verification
+            </a>
+        </li>
+        <li>
+            <a href="/site/bank-information/" data-en="Bank Information" data-ar="معلومات البنك">
+                <span class="material-icons-outlined">account_balance</span>
+                Bank Information
+            </a>
+        </li>
+        <li>
+            <a href="/site/police-clearance-checking/" data-en="Police Clearance" data-ar="شهادة الشرطة">
+                <span class="material-icons-outlined">gavel</span>
+                Police Clearance
+            </a>
+        </li>
+        <li>
+            <a href="/status/" data-en="Check Status" data-ar="تحقق من الحالة">
+                <span class="material-icons-outlined">pending_actions</span>
+                Check Status
+            </a>
+        </li>
+    </ul>
+</aside>
+
+<style>
+/* Dubai Police Header Styles */
+.dubai-police-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.top-bar {
+    background: linear-gradient(135deg, #1a5c3e 0%, #0d4028 100%);
+    padding: 12px 0;
+}
+
+.head-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gov-logo img, .dp-logo img {
+    height: 50px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+.main-nav {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #333;
+}
+
+.main-navigation-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 20px 0;
+    display: block;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-item a:hover,
+.nav-item.active a {
+    color: #1a5c3e;
+}
+
+.nav-item.active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #1a5c3e;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.action-search,
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    color: #333;
+}
+
+.action-search:hover,
+.lang-toggle:hover {
+    background: #f5f5f5;
+    border-color: #1a5c3e;
+}
+
+.search-text, .lang-text {
+    font-weight: 500;
+}
+
+/* Quick Links Sidebar */
+.quick-links-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 200px;
+    width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    z-index: 999;
+}
+
+.sidebar-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    color: #1a5c3e;
+    font-weight: 600;
+}
+
+.quick-links-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.quick-links-menu li {
+    margin-bottom: 10px;
+}
+
+.quick-links-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.quick-links-menu a:hover {
+    background: #f0f8f5;
+    color: #1a5c3e;
+    transform: translateX(-5px);
+}
+
+.quick-links-menu .material-icons-outlined {
+    color: #1a5c3e;
+    font-size: 20px;
+}
+
+/* RTL Support */
+[dir="rtl"] .head-logo {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-wrapper {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .main-navigation-links {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .quick-links-sidebar {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .quick-links-menu a:hover {
+    transform: translateX(5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .main-navigation-links.active {
+        display: flex;
+    }
+
+    .nav-item a {
+        padding: 15px 0;
+    }
+
+    .quick-links-sidebar {
+        display: none;
+    }
+
+    .action-search .search-text {
+        display: none;
+    }
+
+    .gov-logo img, .dp-logo img {
+        height: 40px;
+        max-width: 140px;
+    }
+}
+
+/* Body padding to account for fixed header */
+body {
+    padding-top: 122px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 112px;
+    }
+}
+</style>
+
+<!-- Load Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+
+<!-- Load Shared Header Script -->
+<script src="/site/wp-content/shared-header.js"></script>
